@@ -81,6 +81,7 @@ python3 -m psrl.trainer.main_ppo --config-path="${PSRL_PATH}/psrl/trainer/config
     psrl.deployment.train_nnodes=${TRAIN_NNODES} \
     psrl.deployment.train_ngpus_per_node=${TRAIN_NGPUS_PER_NODE} \
     psrl.nixl.server_port=27837 \
+    psrl.deployment.total_nnodes=1 \
     psrl.group_post_process.enable=False \
     psrl.group_post_process.name=dynamic_sampling_filter \
     \
@@ -146,5 +147,5 @@ python3 -m psrl.trainer.main_ppo --config-path="${PSRL_PATH}/psrl/trainer/config
     trainer.save_freq=200 \
     trainer.test_freq=5 \
     trainer.default_local_dir="${CKPTS_DIR}" \
-    trainer.total_training_steps=200 \
+    trainer.total_training_steps=5 \
     trainer.total_epochs=10 $@ 2>&1 | tee "${experiment_name}.log"
